@@ -26,7 +26,7 @@ jobs:
           go-version: 1.21
 
       - name: Docker Login in quay.io
-        uses: docker/login-action@327cd5a69de6c009b9ce71bce8395f28e651bf99 # pin@v1
+        uses: docker/login-action@3.3.0
         with:
           registry: quay.io
           username: ${{ secrets.QUAY_USERNAME }}
