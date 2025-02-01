@@ -1,5 +1,6 @@
 github.com/WavefrontHQ/go-wavefront-management-api v1.16.0 h1:TnwD32ulsMVpzJWr4+Op9G3H3YnCdXK87yaMvrrQ7pA=
 github.com/WavefrontHQ/go-wavefront-management-api v1.16.0/go.mod h1:lvOQYngtif/hxow8fjOM7ox/nSyYGyBjNwDBXxcTjvk=
+github.com/WavefrontHQ/go-wavefront-management-api/v2 v2.2.1/go.mod h1:yOfesauybnZn9yYaovaLRe3RxlsLSRIswmHayvJO9O8=
 github.com/beorn7/perks v1.0.1 h1:VlbKKnNfV8bJzeqoa4cOKqO6bYr3WgKZxO8Z16+hsOM=
 github.com/beorn7/perks v1.0.1/go.mod h1:G2ZrVWU2WbWT9wwq4/hrbKbnv/1ERSJQ0ibhJ6rlkpw=
 github.com/bytedance/sonic v1.11.6 h1:oUp34TzMlL+OY1OUWxHqsdkgC/Zfc85zGqw9siXjrc0=
