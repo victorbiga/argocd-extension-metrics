@@ -4,6 +4,7 @@ go 1.21
 
 require (
 	github.com/WavefrontHQ/go-wavefront-management-api/v2 v2.2.1
+	github.com/WavefrontHQ/go-wavefront-management-api/v2 v2.2.1
 	github.com/gin-gonic/gin v1.10.0
 	github.com/prometheus/client_golang v1.20.5
 	github.com/prometheus/common v0.62.0
