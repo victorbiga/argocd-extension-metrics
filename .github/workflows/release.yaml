@@ -41,12 +41,16 @@ jobs:
    
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3.3.0
+
+      - name: Set up containerd
+        uses: crazy-max/ghaction-setup-containerd@v3
       
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3.8.0
 
-      - name: Set up containerd
-        uses: crazy-max/ghaction-setup-containerd@v3
+
+      - name: run
+        run: docker buildx create --use --name super-builder
           
       - name: Run GoReleaser
         uses: goreleaser/goreleaser-action@v6.1.0
