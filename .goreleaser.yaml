@@ -1,3 +1,4 @@
+version: "v2"
 project_name: argocd-extension-metrics
 
 before:
@@ -35,7 +36,7 @@ builds:
 
 dockers:
   - image_templates:
-    - victorbiga.io/argocd-extension-metrics:latest
+    - victorbiga/argocd-extension-metrics:latest
     - victorbiga/argocd-extension-metrics:{{ .Tag }}
     dockerfile: release.Dockerfile
     build_flag_templates:
