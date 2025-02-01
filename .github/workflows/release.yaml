@@ -16,7 +16,7 @@ jobs:
     name: Release
     steps:
       - name: Checkout
-        uses: actions/checkout@4.2.1
+        uses: actions/checkout@4.2.2
         with:
           fetch-depth: 0
 
