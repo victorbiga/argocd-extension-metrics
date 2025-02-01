@@ -16,7 +16,7 @@ jobs:
     name: Release
     steps:
       - name: Checkout
-        uses: actions/checkout@85e6279cec87321a52edac9c87bce653a07cf6c2 # pin@v3
+        uses: actions/checkout@4.2.1
         with:
           fetch-depth: 0
 
