@@ -1,5 +1,5 @@
 {
   "devDependencies": {
-    "react-test-renderer": "^18.2.0"
+    "react-test-renderer": "^19.0.0"
   }
 }
