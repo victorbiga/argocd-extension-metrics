@@ -21,7 +21,7 @@ builds:
     goos:
       - linux
     goarch:
-     # - amd64
+      #- amd64
       - arm64
     ignore:
       - goos: darwin
@@ -35,40 +35,28 @@ builds:
 
 dockers:
   - image_templates:
-      - victorbiga/argocd-extension-metrics:latest
-      - victorbiga/argocd-extension-metrics:{{ .Tag }}
+    - victorbiga/argocd-extension-metrics:latest
+    - victorbiga/argocd-extension-metrics:{{ .Tag }}
     dockerfile: release.Dockerfile
     build_flag_templates:
-      - "--pull"
-      - "--label=org.opencontainers.image.created={{.Date}}"
-      - "--label=org.opencontainers.image.title={{.ProjectName}}"
-      - "--label=org.opencontainers.image.revision={{.FullCommit}}"
-      - "--label=org.opencontainers.image.version={{.Version}}"
-    use: buildx  # Ensures use of Docker Buildx for multi-platform builds
-    goarch:
-      #- amd64
-      - arm64  # Specifying architectures here for the multi-platform build
-
-docker_manifests:
-  - name_template: "victorbiga/argocd-extension-metrics:{{ .Tag }}"
-    image_templates:
-      - "victorbiga/argocd-extension-metrics:{{ .Tag }}-amd64"
-      - "victorbiga/argocd-extension-metrics:{{ .Tag }}-arm64"
-    build_flag_templates:
-      - "--platform=linux/amd64,linux/arm64"
+    - "--pull"
+    - "--label=org.opencontainers.image.created={{.Date}}"
+    - "--label=org.opencontainers.image.title={{.ProjectName}}"
+    - "--label=org.opencontainers.image.revision={{.FullCommit}}"
+    - "--label=org.opencontainers.image.version={{.Version}}"
 
 archives:
   - format: tar.gz
     id: binary
     builds:
-      - metrics-server
+    - metrics-server
   - format: gz
     id: ui-extension
     name_template: extension.tar
     meta: true
     files: 
-      - src: extensions/**/extension.tar
-        strip_parent: true
+    - src: extensions/**/extension.tar
+      strip_parent: true
 
 checksum:
   name_template: 'extension_checksums.txt'
