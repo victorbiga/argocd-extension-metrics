@@ -46,6 +46,8 @@ dockers:
       - "--label=org.opencontainers.image.revision={{.FullCommit}}"
       - "--label=org.opencontainers.image.version={{.Version}}"
       - "--platform=linux/amd64,linux/arm64"
+    env:
+      - DOCKER_CLI_EXPERIMENTAL=enabled
 
 archives:
   - formats: [ 'tar.gz' ]
