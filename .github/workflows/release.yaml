@@ -16,6 +16,9 @@ defaults:
 jobs:
   release:
     runs-on: ubuntu-24.04
+    env:
+      DOCKER_CLI_EXPERIMENTAL: "enabled"
+    
     if: github.repository == 'victorbiga/argocd-extension-metrics'
     name: Release
     steps:
