@@ -14,7 +14,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"
 
-	tls2 "github.com/argoproj-labs/argocd-metric-ext-server/internal/tls"
+	tls2 "github.com/victorbiga/argocd-extension-metrics/internal/tls"
 )
 
 const PROMETHEUS_TYPE = "prometheus"
