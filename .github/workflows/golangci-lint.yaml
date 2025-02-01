@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@4.2.2
-      - uses: actions/setup-go@93397bea11091df50f3d7e59dc26a7711a8bcfbe # pin@v4
+      - uses: actions/setup-go@5a083d0e9a84784eb32078397cf5459adecb4c40 # pin@v4
         with:
           go-version: '1.21'
           cache: false
