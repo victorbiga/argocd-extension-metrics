@@ -21,7 +21,7 @@ builds:
     goos:
       - linux
     goarch:
-      #- amd64
+     # - amd64
       - arm64
     ignore:
       - goos: darwin
@@ -44,10 +44,10 @@ dockers:
       - "--label=org.opencontainers.image.title={{.ProjectName}}"
       - "--label=org.opencontainers.image.revision={{.FullCommit}}"
       - "--label=org.opencontainers.image.version={{.Version}}"
-    use: buildx
+    use: buildx  # Ensures use of Docker Buildx for multi-platform builds
     goarch:
       #- amd64
-      - arm64
+      - arm64  # Specifying architectures here for the multi-platform build
 
 docker_manifests:
   - name_template: "victorbiga/argocd-extension-metrics:{{ .Tag }}"
@@ -55,7 +55,7 @@ docker_manifests:
       - "victorbiga/argocd-extension-metrics:{{ .Tag }}-amd64"
       - "victorbiga/argocd-extension-metrics:{{ .Tag }}-arm64"
     build_flag_templates:
-      - "--platform=linux/amd64,linux/arm64"  # This is the only valid place for platform-related flags in docker_manifests
+      - "--platform=linux/amd64,linux/arm64"
 
 archives:
   - format: tar.gz
