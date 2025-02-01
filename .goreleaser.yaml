@@ -44,10 +44,10 @@ dockers:
       - "--label=org.opencontainers.image.title={{.ProjectName}}"
       - "--label=org.opencontainers.image.revision={{.FullCommit}}"
       - "--label=org.opencontainers.image.version={{.Version}}"
-    use: buildx  # Ensures use of Docker Buildx for multi-platform builds
+    use: buildx
     goarch:
       - amd64
-      - arm64  # Specifying architectures here for the multi-platform build
+      - arm64
 
 docker_manifests:
   - name_template: "victorbiga/argocd-extension-metrics:{{ .Tag }}"
