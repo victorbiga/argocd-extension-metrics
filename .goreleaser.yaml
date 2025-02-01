@@ -48,11 +48,11 @@ dockers:
       - "--platform=linux/amd64,linux/arm64"
 
 archives:
-  - format: tar.gz
+  - formats: [ 'tar.gz' ]
     id: binary
     builds:
       - metrics-server
-  - format: gz
+  - formats: [ 'gz']
     id: ui-extension
     name_template: extension.tar
     meta: true
