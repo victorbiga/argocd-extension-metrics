@@ -21,7 +21,7 @@ builds:
     goos:
       - linux
     goarch:
-      - amd64
+      #- amd64
       - arm64
     ignore:
       - goos: darwin
@@ -46,7 +46,7 @@ dockers:
       - "--label=org.opencontainers.image.version={{.Version}}"
     use: buildx
     goarch:
-      - amd64
+      #- amd64
       - arm64
 
 docker_manifests:
