@@ -72,8 +72,8 @@ release:
 
     ### Docker images
 
-    - quay.io/argoprojlabs/argocd-extension-metrics:{{ .Tag }}
-    - quay.io/argoprojlabs/argocd-extension-metrics:latest
+    - victorbiga/argocd-extension-metrics:{{ .Tag }}
+    - victorbiga/argocd-extension-metrics:latest
 
   footer: |
     **Full Changelog**: https://github.com/argoproj-labs/argocd-extension-metrics/compare/{{ .PreviousTag }}...{{ .Tag }}
