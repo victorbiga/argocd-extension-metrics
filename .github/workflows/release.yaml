@@ -39,10 +39,8 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3.8.0
         with:
-          platforms: linux/amd64,linux/arm64
-          driver-opts: |
-            image=moby/buildkit:master
-            network=host
+          use: linux/amd64,linux/arm64
+          
       - name: Run GoReleaser
         uses: goreleaser/goreleaser-action@v6.1.0
         with:
