@@ -12,48 +12,33 @@ permissions:
 defaults:
   run:
     shell: bash
-
+   
 jobs:
   release:
-    runs-on: ubuntu-24.04
-    env:
-      DOCKER_CLI_EXPERIMENTAL: "enabled"
-    
+    runs-on: ubuntu-latest
     if: github.repository == 'victorbiga/argocd-extension-metrics'
-    name: Release
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4.2.2
-        with:
-          fetch-depth: 0
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - name: Setup Go
-        uses: actions/setup-go@v5.3.0
-        with:
-          go-version: 1.21
+      - name: Set up QEMU for multi-arch builds
+        uses: docker/setup-qemu-action@v3
 
-      - name: Docker Login in quay.io
-        uses: docker/login-action@v3.3.0
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
         with:
-          registry: docker.io
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DCOKER_TOKEN }}
-   
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3.3.0
 
-      
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3.8.0
-
-          
-      - name: Run GoReleaser
-        uses: goreleaser/goreleaser-action@v6.1.0
-        with:
-          distribution: goreleaser
-          version: latest
-          args: release --clean
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          DOCKER_BUILDX: "true"
-          DOCKER_BUILDKIT: 1
+      - name: Build and Push Docker Image
+        run: |
+          docker buildx create --use
+          docker buildx build --platform linux/amd64,linux/arm64 \
+            --tag victorbiga/argocd-extension-metrics:${{ github.ref_name }} \
+            --tag victorbiga/argocd-extension-metrics:latest \
+            --file release.Dockerfile \
+            --push .
