@@ -36,9 +36,10 @@ builds:
 
 dockers:
   - image_templates:
-      - victorbiga/argocd-extension-metrics:{{ .Tag }}
-      - victorbiga/argocd-extension-metrics:latest
+      - victorbiga/argocd-extension-metrics:{{ .Tag }}-amd64
+      - victorbiga/argocd-extension-metrics:latest-amd64
     dockerfile: release.Dockerfile
+    goarch: amd64
     use: buildx
     build_flag_templates:
       - "--pull"
@@ -46,7 +47,19 @@ dockers:
       - "--label=org.opencontainers.image.title={{.ProjectName}}"
       - "--label=org.opencontainers.image.revision={{.FullCommit}}"
       - "--label=org.opencontainers.image.version={{.Version}}"
-      - "--platform=linux/amd64,linux/arm64"
+
+  - image_templates:
+      - victorbiga/argocd-extension-metrics:{{ .Tag }}-arm64
+      - victorbiga/argocd-extension-metrics:latest-arm64
+    dockerfile: release.Dockerfile
+    goarch: arm64
+    use: buildx
+    build_flag_templates:
+      - "--pull"
+      - "--label=org.opencontainers.image.created={{.Date}}"
+      - "--label=org.opencontainers.image.title={{.ProjectName}}"
+      - "--label=org.opencontainers.image.revision={{.FullCommit}}"
+      - "--label=org.opencontainers.image.version={{.Version}}"
 
 archives:
   - formats: [ 'tar.gz' ]
