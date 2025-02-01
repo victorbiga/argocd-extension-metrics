@@ -32,8 +32,6 @@ builds:
         goarch: s390x
       - goos: windows
         goarch: ppc64le
-      - goos: windows
-        goarch: arm64
 
 dockers:
   - image_templates:
