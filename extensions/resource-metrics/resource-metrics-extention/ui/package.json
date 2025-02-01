@@ -11,9 +11,9 @@
   },
   "peerDependencies": {
     "argo-ui": "git+https://github.com/argoproj/argo-ui.git",
+    "moment": "^2.29.4",
     "react": "^16.9.3 || ^19.0.0",
-    "react-dom": "^16.9.3 || ^19.0.0",
-    "moment": "^2.29.4"
+    "react-dom": "^16.9.3 || ^19.0.0"
   },
   "scripts": {
     "start": "webpack --config ./webpack.config.js --watch",
