@@ -1,5 +1,8 @@
 # Build stage
-FROM golang:1.21-alpine AS builder
+FROM --platform=$BUILDPLATFORM golang:1.21-alpine AS builder
+
+ARG TARGETOS
+ARG TARGETARCH
 
 WORKDIR /app
 
@@ -13,10 +16,10 @@ RUN go mod download
 # Copy the source code
 COPY . .
 
-# Build the Go binary
-RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o /metrics-server ./cmd/main.go
+# Build the Go binary for the target architecture
+RUN CGO_ENABLED=0 GOOS=$TARGETOS GOARCH=$TARGETARCH go build -o /metrics-server ./cmd/main.go
 
 # Final stage - minimal image
-FROM scratch
+FROM --platform=$TARGETPLATFORM scratch
 COPY --from=builder /metrics-server /
 ENTRYPOINT [ "/metrics-server" ]
