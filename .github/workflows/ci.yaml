@@ -13,7 +13,7 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: Set up Go 1.x
-        uses: actions/setup-go@5a083d0e9a84784eb32078397cf5459adecb4c40 # pin@v4
+        uses: actions/setup-go@5.3.0
         with:
           go-version: "1.21"
         id: go
@@ -37,7 +37,7 @@ jobs:
     steps:
       - uses: actions/checkout@4.4.1
       - name: Setup Golang
-        uses: actions/setup-go@5a083d0e9a84784eb32078397cf5459adecb4c40 # pin@v4
+        uses: actions/setup-go@5.3.0
         with:
           go-version: "1.21"
       - name: Restore Go build cache
