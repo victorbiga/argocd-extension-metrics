@@ -51,7 +51,7 @@
     "react-keyhooks": "^0.2.3",
     "rxjs": "^7.1.0",
     "sass": "1.83.4",
-    "sass-loader": "16.0.4",
+    "sass-loader": "16.0.5",
     "style-loader": "4.0.0",
     "ts-loader": "9.5.2",
     "typescript": "^5.0.0",
