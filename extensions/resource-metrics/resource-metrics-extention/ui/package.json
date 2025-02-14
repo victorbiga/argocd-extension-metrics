@@ -50,7 +50,7 @@
     "react-dom": "^19.0.0",
     "react-keyhooks": "^0.2.3",
     "rxjs": "^7.1.0",
-    "sass": "1.83.4",
+    "sass": "1.85.0",
     "sass-loader": "16.0.4",
     "style-loader": "4.0.0",
     "ts-loader": "9.5.2",
